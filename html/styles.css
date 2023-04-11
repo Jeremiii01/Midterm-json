@@ -1,0 +1,27 @@
+body {
+      font-family: Arial, sans-serif;
+      padding: 25px;
+      background-image: url("http://localhost/Midterm-json/img/img.jpg");
+      background-size: cover;
+  }
+  .my-heading {
+    font-size: 40px;
+    color: rgb(225, 235, 227);
+    text-align: center;
+    text-shadow: 2px 2px rgb(134, 132, 132);
+  
+    
+    
+  }
+  .my-button {
+    background-color: #164ee7;
+    color: rgb(255, 247, 247);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  
+  

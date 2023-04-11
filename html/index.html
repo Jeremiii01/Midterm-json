@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JEWELRIES</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+  <div class="container">
+    <h1 class="my-heading text-left mt-5 mb-5"> Jewelries <button id="button" class="my-button btn btn-primary"> Show</button> </h1>
+    <div class="table-responsive">
+      <table class="table table-bordered border-dark table-striped p-3 mb-5">
+        <thead class="bg-primary ">
+          <tr>
+            <th scope="col">JewelriesType</th>
+            <th scope="col">BrandName</th>
+            <th scope="col">MetalType</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody id="table-body" class="table-secondary"></tbody>
+      </table>
+    </div>
+   
+  </div>
+  
+  <!-- Include jQuery and Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+  <script>
+    const loadButton = document.getElementById("button");
+    loadButton.addEventListener("click", function() {
+      const xmlhttp = new XMLHttpRequest();
+     xmlhttp.open("GET", "http://localhost/Midterm-json/php/");
+      xmlhttp.send();
+      xmlhttp.onload = function () {
+        const jewelry = JSON.parse(this.responseText);
+        var tableBody = document.getElementById("table-body");
+        tableBody.innerHTML = ""; // clear existing rows
+        for (var i in jewelry) {
+          var row = `<tr>
+            <td>${jewelry[i].jewelriesType}</td>
+            <td>${jewelry[i].brandName}</td>
+            <td>${jewelry[i].metalType}</td>
+            <td>${jewelry[i].price}</td>
+            <td>${jewelry[i].description}</td>
+         
+          </tr>`;
+          tableBody.innerHTML += row;
+        }
+      };
+    });
+  </script>
+</body>
+</html>
